@@ -15,8 +15,6 @@ window.onload = function () {
             }
         }
 
-        console.log('veio depois do onready');
-
         xhttp.open('GET', 'ajax/user.php', true);
 
         xhttp.send();
