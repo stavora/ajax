@@ -1,0 +1,15 @@
+{
+    "name": "sylvi/ajax",
+    "autoload": {
+        "psr-4": {
+            "Sylvi\\Ajax\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sylvio Tavora",
+            "email": "sylvio@stavora.com.br"
+        }
+    ],
+    "require": {}
+}
