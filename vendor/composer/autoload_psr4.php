@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Sylvi\\Ajax\\' => array($baseDir . '/src'),
+    'app\\' => array($baseDir . '/app'),
 );
