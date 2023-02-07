@@ -3,17 +3,23 @@ window.onload = function(){
     var btn_users = document.querySelector("#btn-users");
     var div_users = document.querySelector("#div-users");
 
-    var xhttp = new XMLHttpRequest();
-
     btn_users.onclick = function(){
+           
+        xmlHttpGet('ajax/user', function(){
 
-        xhttp.onreadystatechange = function(){
+            beforeSend(function(){
 
-            
+                div_users.innerHTML = `<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>`;
 
-            if (this.readyState == 4 && this.status == 200) {
-                var users = JSON.parse(this.responseText)
+            });
+
+            success(function(){
+
+                // console.log(xhttp.responseText);
+
+                var users = JSON.parse(xhttp.responseText);
                 var table = `<table class='table table-striped'>`;
+
                 table += `<thead><tr><td>ID</td><td>Nome</td><td>Email</td></tr></thead>`;
                 table += `<tbody>`;
                     users.forEach(function(user){
@@ -25,10 +31,19 @@ window.onload = function(){
                     });
                 table += `</tbody>`;
                 table += `</table>`;
+
                 div_users.innerHTML = table;
-            }
-        }
-        xhttp.open('GET', 'ajax/user.php', true);
-        xhttp.send();
+                
+            });
+
+            error(function(){
+
+                div_users.innerHTML = 'Ocorreu um erro.';
+
+            });
+
+        },'?id=1');
+         
+        
     }
 }
