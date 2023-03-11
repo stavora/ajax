@@ -40,6 +40,6 @@ function success(callback){
 
 function error(callback){
 
-    xhttp.onerror = callback();
+    xhttp.onerror = callback;
 
 }
